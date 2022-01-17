@@ -7,8 +7,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.stringToColour = exports.parseName = exports.initCapitalize = exports.getObject = exports.getContrastYIQ = exports.adjust = exports.RGB = void 0;
 
-var _this = void 0;
-
 function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
@@ -90,7 +88,7 @@ exports.RGB = RGB;
 var initCapitalize = function initCapitalize() {
   Object.defineProperty(String.prototype, 'capitalize', {
     value: function value() {
-      return this.charAt(0).toUpperCase() + this.slice(1);
+      return this.charAt(0).toLocaleUpperCase('tr') + this.slice(1);
     },
     enumerable: false
   });
@@ -106,7 +104,6 @@ var getObject = function getObject(fileName) {
   var shapeObject = Promise.resolve("".concat(__dirname, "/../shapes/").concat(fileName, ".js")).then(function (s) {
     return _interopRequireWildcard(require(s));
   });
-  var shape = _this;
   return new Promise(function (resolve, reject) {
     shapeObject.then(function (module) {
       return module["default"];

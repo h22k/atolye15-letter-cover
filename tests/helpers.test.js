@@ -13,6 +13,7 @@ describe('helpers functions', () => {
         expect(parseName('haLil hKan kRBY')).toBe('HK')
         expect(parseName('atölye 15')).toBe('A1')
         expect(parseName('HEPSİ BÜYÜK HARFLER İÇERİYOR')).toBe('Hİ')
+        expect(parseName('ülker çikolatalı gofret')).toBe('ÜG')
     })
 
     test('stringToColour function returns the hex code string by the given parameter | [Non-case sensitive]', () => {

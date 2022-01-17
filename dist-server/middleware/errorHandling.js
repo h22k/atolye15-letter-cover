@@ -7,10 +7,10 @@ exports["default"] = void 0;
 
 var errorHandling = function errorHandling(err, req, res, next) {
   if (err) {
-    res.json({
+    res.status(422).json({
       errorMsg: err.message,
       statusCode: 422
-    }, 422);
+    });
   }
 
   next();

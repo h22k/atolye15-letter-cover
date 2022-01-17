@@ -42,7 +42,7 @@ const RGB = (hexColor) => {
 const initCapitalize = () => {
     Object.defineProperty(String.prototype, 'capitalize', {
         value: function () {
-            return this.charAt(0).toUpperCase() + this.slice(1);
+            return this.charAt(0).toLocaleUpperCase('tr') + this.slice(1);
         },
         enumerable: false
     });
@@ -50,7 +50,6 @@ const initCapitalize = () => {
 
 const getObject = (fileName, ...args) => {
     const shapeObject = import(`${__dirname}/../shapes/${fileName}.js`)
-    let shape = this
 
     return new Promise(((resolve, reject) => {
         shapeObject.then(module => {
