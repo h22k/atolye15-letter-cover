@@ -4,7 +4,7 @@
   "private": true,
   "license": "ISC",
   "scripts": {
-    "start": "nodemon ./dist-server/bin/www",
+    "start": "node ./dist-server/bin/www",
     "transpile": "babel ./server --out-dir dist-server --ignore '**/__tests__/'",
     "clean": "rimraf dist-server",
     "build": "npm-run-all clean transpile",
