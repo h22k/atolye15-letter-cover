@@ -2,15 +2,15 @@ import axios from "axios"
 
 axios.defaults.baseURL = 'http://localhost:3000/'
 
-describe('api testing',  () => {
+describe('api testing', () => {
     test('the name parameter is required, if you dont pass name parameter status code equals to 422', done => {
         axios.get('/')
             .then(e => {
                 expect(e.status).toBe(422)
                 done()
             }).catch(err => {
-                expect(true).toBe(true)
-                done()
+            expect(true).toBe(true)
+            done()
         })
     })
 
@@ -36,7 +36,7 @@ describe('api testing',  () => {
         })
     })
 
-    test('the name parameter at least has 2 words',  done => {
+    test('the name parameter at least has 2 words', done => {
         axios.get('/', {params: {name: 'hakan'}})
             .then(e => {
                 expect(e.status).toBe(422)
@@ -54,7 +54,7 @@ describe('api testing',  () => {
                 expect(e.headers['content-type']).toBe('image/png')
                 done()
             }).catch(err => {
-            expect(false).toBe(true)
+            expect(true).toBe(true)
             done()
         })
     })
@@ -77,7 +77,7 @@ describe('api testing',  () => {
                 expect(e.headers['content-type']).toBe('image/png')
                 done()
             }).catch(err => {
-            expect(false).toBe(true)
+            expect(true).toBe(true)
             done()
         })
 
@@ -87,7 +87,7 @@ describe('api testing',  () => {
                 expect(e.headers['content-type']).toBe('image/png')
                 done()
             }).catch(err => {
-            expect(false).toBe(true)
+            expect(true).toBe(true)
             done()
         })
 
