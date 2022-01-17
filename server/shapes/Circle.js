@@ -6,7 +6,7 @@ class Circle extends Canvas {
         const [centerHeight, centerWidth] = this.canvasSizes()
 
         const radius = this.sizes[0]
-        this.context.arc(centerHeight, centerWidth, radius, 0, 2 * Math.PI, false)
+        this.context.arc(centerWidth, centerHeight, radius, 0, 2 * Math.PI, false);
         this.context.fill()
 
         return this

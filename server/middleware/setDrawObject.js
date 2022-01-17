@@ -4,10 +4,13 @@ import {createCanvas} from "canvas";
 const setDrawObject = (req, res, next) => {
     const { name, shape, size } = req
 
-    const height = 1080
-    const width = 1920
+    const height = shape === 'Circle' ? Math.max(...size) * 3: size[0]
+    const width = shape === 'Circle' ? Math.max(...size) * 3: size[1]
 
-    const shapeObject = getObject(shape, name, stringToColour(name), size, createCanvas(width, height))
+    const COLOR = stringToColour(name)
+    const CANVAS = createCanvas(width, height)
+
+    const shapeObject = getObject(shape, name, COLOR, size, CANVAS)
 
     shapeObject.then(object => {
         req.draw = object.draw()

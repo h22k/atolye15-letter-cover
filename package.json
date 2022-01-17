@@ -2,25 +2,20 @@
   "name": "atolye-15-letter-api",
   "version": "0.0.0",
   "private": true,
+  "license": "ISC",
   "scripts": {
     "start": "nodemon ./dist-server/bin/www",
-    "transpile": "babel ./server --out-dir dist-server",
+    "transpile": "babel ./server --out-dir dist-server --ignore '**/__tests__/'",
     "clean": "rimraf dist-server",
     "build": "npm-run-all clean transpile",
-    "dev": "NODE_ENV=development npm-run-all build server",
+    "dev": "clear && NODE_ENV=development npm-run-all jest build server",
     "prod": "NODE_ENV=production npm-run-all build server",
     "watch:dev": "nodemon",
-    "server": "node ./dist-server/bin/www"
+    "server": "node ./dist-server/bin/www",
+    "jest": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@babel/cli": "^7.16.8",
-    "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.16.8",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.2.3",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "canvas": "^2.8.0",
     "color": "^4.2.0",
     "cookie-parser": "~1.4.4",
@@ -39,15 +34,25 @@
     ]
   },
   "nodemonConfig": {
-    "exec": "npm run dev",
+    "exec": "yarn dev",
     "watch": [
-      "server/*",
-      "public/*"
+      "server/*"
     ],
     "ignore": [
-      "**/__tests__/**",
-      "*.test.js",
-      "*.spec.js"
+      "**/tests/**"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.8",
+    "axios": "^0.24.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "^27.4.7",
+    "supertest": "^6.2.1"
   }
 }

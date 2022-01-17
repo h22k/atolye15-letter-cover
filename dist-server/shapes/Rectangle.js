@@ -43,18 +43,18 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var Circle = /*#__PURE__*/function (_Canvas) {
-  _inherits(Circle, _Canvas);
+var Rectangle = /*#__PURE__*/function (_Canvas) {
+  _inherits(Rectangle, _Canvas);
 
-  var _super = _createSuper(Circle);
+  var _super = _createSuper(Rectangle);
 
-  function Circle() {
-    _classCallCheck(this, Circle);
+  function Rectangle() {
+    _classCallCheck(this, Rectangle);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Circle, [{
+  _createClass(Rectangle, [{
     key: "calculate",
     value: function calculate() {
       var _this$canvasSizes = this.canvasSizes(),
@@ -62,15 +62,20 @@ var Circle = /*#__PURE__*/function (_Canvas) {
           centerHeight = _this$canvasSizes2[0],
           centerWidth = _this$canvasSizes2[1];
 
-      var radius = this.sizes[0];
-      this.context.arc(centerWidth, centerHeight, radius, 0, 2 * Math.PI, false);
+      var _this$sizes = _slicedToArray(this.sizes, 2),
+          height = _this$sizes[0],
+          width = _this$sizes[1];
+
+      var x = centerWidth - width / 2,
+          y = centerHeight - height / 2;
+      this.context.fillRect(x, y, width, height);
       this.context.fill();
       return this;
     }
   }]);
 
-  return Circle;
+  return Rectangle;
 }(_Canvas2["default"]);
 
-var _default = Circle;
+var _default = Rectangle;
 exports["default"] = _default;

@@ -25,7 +25,6 @@ const getContrastYIQ = (hexColor) => {
     if (hexColor[0] === '#') hexColor = hexColor.slice(1)
 
     const [r, g, b] = RGB(hexColor)
-
     const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000
 
     return (yiq >= 128) ? '#000000' : '#ffffff'
@@ -74,5 +73,6 @@ export {
     getContrastYIQ,
     initCapitalize,
     getObject,
-    adjust
+    adjust,
+    RGB
 }

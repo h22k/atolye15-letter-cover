@@ -92,3 +92,5 @@ function onListening() {
 
   console.log('Running on localhost:3000')
 }
+
+export default app

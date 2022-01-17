@@ -38,11 +38,12 @@ class Canvas {
     text() {
         const [centerHeight, centerWidth] = this.canvasSizes()
 
-        this.context.font = '70px Arial'
+        const shortSide = Math.min(...this.sizes)
+        this.context.font = `${shortSide / 2}px Arial`
         this.context.textAlign = 'center'
         this.context.textBaseline = 'middle'
         this.context.fillStyle = getContrastYIQ(this.color)
-        this.context.fillText(parseName(this.name), centerHeight, centerWidth)
+        this.context.fillText(parseName(this.name), centerWidth, centerHeight)
 
         return this
     }

@@ -7,6 +7,14 @@ exports["default"] = void 0;
 
 var _helper = require("./helper");
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -64,11 +72,12 @@ var Canvas = /*#__PURE__*/function () {
           centerHeight = _this$canvasSizes2[0],
           centerWidth = _this$canvasSizes2[1];
 
-      this.context.font = '70px Arial';
+      var shortSide = Math.min.apply(Math, _toConsumableArray(this.sizes));
+      this.context.font = "".concat(shortSide / 2, "px Arial");
       this.context.textAlign = 'center';
       this.context.textBaseline = 'middle';
       this.context.fillStyle = (0, _helper.getContrastYIQ)(this.color);
-      this.context.fillText((0, _helper.parseName)(this.name), centerHeight, centerWidth);
+      this.context.fillText((0, _helper.parseName)(this.name), centerWidth, centerHeight);
       return this;
     }
   }, {

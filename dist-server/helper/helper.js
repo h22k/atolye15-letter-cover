@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.stringToColour = exports.parseName = exports.initCapitalize = exports.getObject = exports.getContrastYIQ = exports.adjust = void 0;
+exports.stringToColour = exports.parseName = exports.initCapitalize = exports.getObject = exports.getContrastYIQ = exports.adjust = exports.RGB = void 0;
 
 var _this = void 0;
 
@@ -84,6 +84,8 @@ var RGB = function RGB(hexColor) {
 
   return rgb;
 };
+
+exports.RGB = RGB;
 
 var initCapitalize = function initCapitalize() {
   Object.defineProperty(String.prototype, 'capitalize', {
